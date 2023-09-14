@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <Title>Objects</Title>
+  </head>
+  <body>
+    <script>
+      /*
+      const product = {
+        name: 'Socks',
+        price: 1090 
+      };
+      console.log(typeof product);
+      console.log(product);
+      console.log(product.name);
+      console.log(product.price);
+
+      product.name='Cotton Socks';
+      console.log(product);
+      product.newPropert=true;
+      console.log(product);
+      delete product.newPropert;
+      console.log(product);
+      */
+/*
+
+      //in an object we can put values, objects and functions. bcuz objects and fxs are also values.
+      const product2={
+        name:'Shirt',
+        ['delivery-time']: '1 Day',
+        rating:{    //nested objects.
+          stars:4.5,
+          count:87
+        },
+        fun: function fxn1(){   //when we use a fxn in an object it is called method, console.log is a method too. MAth.random is also a method.
+          console.log('Function inside object');
+        }
+      };
+      console.log(product2);
+      console.log(product2.name);
+      console.log(product2['name']);
+      console.log(product2['delivery-time']);
+      console.log(product2.rating.count);
+      product2.fun();
+      // we use sq brackets if symbols like del-time (-) dash will be thought by js as a minus symbol so we can't use . notation.
+      console.log(typeof console.log);
+
+      //Math, Console , JSON and Local Storage are all built-in objects
+
+      //JSON :JavaScript Object Notation (more universal as can be understood by many programming languages)
+      // a similar syntax to js object but less features.
+      // JSON doesn't support single quotes, doesnt support fxns and needs double quotes on left sides for all i.t. "count":87
+
+
+      console.log(JSON.stringify(product2));
+      console.log(typeof JSON.stringify(product2));
+
+      const JSONstring=JSON.stringify(product2);
+      console.log(JSON.parse(JSONstring));
+
+      //local storage  is used to store out value more permenantly , variables are temporary when we refreseh the page, variables are reset
+      //LS only stores object as strings.
+*/
+      //Auto Boxing
+      console.log('hello'.length);
+      console.log('hello'.toUpperCase());
+      //works with everything except null and undefined
+      console.log(3.0.toString());
+      console.log(true.toString());
+// objects are references like shortcuts on a computers.
+      const object1={
+        message: 'hello'
+      };
+      const object2=object1; // copy by refernece, it doesn't copy the whole object but it copies just the reference of that object in the memory.
+
+      object1.message='Good Job';
+      console.log(object1);
+      console.log(object2);
+      // even though we use const we can still change the value in the object .
+      // we can't compare object directly.
+
+      const object3={
+        message:'Good Job'
+      };
+
+      console.log(object3===object1);
+      // it gives false as even though value of these 2 are same but objects give reference of this thing in the memory so they compare the memry address reference not the actual internal value
+      console.log(object1===object2);
+      //it returns true as the reference address to both the objects is same.
+
+      const object4={
+        message:'Good Job',
+        price:799
+      };
+     // const message=object4.message;
+     // de structuring shortcut
+      const{message,price}=object4;
+      console.log(message);
+      console.log(price);
+
+      const object5={
+        //message: message
+        //short hand property
+        message,//just 1 line is SH prop.
+        method: function funct1(){
+          console.log('method');
+        },
+        method1(){
+          console.log('method');
+        }
+      };
+      console.log(object5);
+      object5.method();
+      object5.method1();
+    </script>
+  </body>
+</html>

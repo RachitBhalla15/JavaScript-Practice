@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <Title>DOM-Projects</Title>
+  </head>
+  <body>
+    <p>Youtube Subsribe Button</p>
+    <button class="js-subscribe-button" onclick="
+    subscribe();
+    "> Subscribe </button>    <!--due to spaces here we use inner text-->
+    <p>Amazon Shipping Calculator</p>
+
+    <input placeholder="Cost of Order" class="js-cost-input" onkeydown="
+    //console.log(event);   //event tells us which key is pressed
+    handleCostKeyDown(event);
+    
+    ">
+
+    <button onclick="
+      CalculateTotal();
+    ">Calculate</button>
+    <p class="js-total-cost"></p>
+
+
+
+    <script>
+
+      String(25);//it converts anything to string
+      console.log('25'-5);  //we string contains a no, and we try arithmetic operations on it, js will automatically convert it into  a number though it is not encouraged.
+
+      //window element represents the browser.whereas document represents a webpage
+      /*window.document
+      window.console.log('window');
+      window.alert('Hello');
+      */
+
+      //we don't type window. in front of anything js adds it for us automatically
+
+
+      function handleCostKeyDown(event){
+        if(event.key === 'Enter'){
+          CalculateTotal();
+        }
+      }
+      function CalculateTotal(){
+        const inputElement=document.querySelector('.js-cost-input');
+        let cost=Number(inputElement.value);  //Number property converts anything into a number.
+
+        if(cost<40){
+          cost+=10;
+        }
+
+        document.querySelector('.js-total-cost').innerHTML=`${cost}`;
+      }
+
+
+      function subscribe(){
+        const buttonElement=document.querySelector('.js-subscribe-button');
+
+        if(buttonElement.innerText==='Subscribe'){  //use inner text because it doesn't consider spaces and extra lines while inner html doesn't.
+        buttonElement.innerHTML='Subscribed';
+        }
+        else{
+        buttonElement.innerHTML='Subscribe';
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <Title>DOM-Projects</Title>
+    <style>
+      body{
+        font-family: Arial;
+      }
+
+      .subscribe-button{
+        border:none;
+        background-color: black;
+        color:white;
+        border-radius: 50px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-bottom: 30px;
+      }
+      .is-subscribed{
+        background-color: rgb(240, 240, 240);
+        color:black;
+      }
+
+      .cost-input{
+        font-size: 15px;
+       /* padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;*/
+        padding: 10px;
+      }
+      .calculate-button{
+        background-color: green;
+        border:none;
+        color: white;
+        font-size: 15px;
+        padding: 12px 15px;         /* 1st is vertical and 2nd is horizontal padding*/
+      }
+    </style>
+  </head>
+  <body>
+    <p>Youtube Subsribe Button</p>
+    <button class="js-subscribe-button subscribe-button"  onclick="
+    subscribe();
+    "> Subscribe </button>    <!--due to spaces here we use inner text-->
+    <p>Amazon Shipping Calculator</p>
+
+    <input placeholder="Cost of Order" class="js-cost-input cost-input" onkeydown="
+    //console.log(event);   //event tells us which key is pressed
+    handleCostKeyDown(event);
+    
+    ">
+
+    <button onclick="
+      CalculateTotal();
+    " class="calculate-button">Calculate</button>
+    <p class="js-total-cost"></p>
+
+
+
+    <script>
+
+      String(25);//it converts anything to string
+      console.log('25'-5);  //we string contains a no, and we try arithmetic operations on it, js will automatically convert it into  a number though it is not encouraged.
+
+      //window element represents the browser.whereas document represents a webpage
+      /*window.document
+      window.console.log('window');
+      window.alert('Hello');
+      */
+
+      //we don't type window. in front of anything js adds it for us automatically
+
+
+      function handleCostKeyDown(event){
+        if(event.key === 'Enter'){
+          CalculateTotal();
+        }
+      }
+      function CalculateTotal(){
+        const inputElement=document.querySelector('.js-cost-input');
+        let cost=Number(inputElement.value);  //Number property converts anything into a number.
+
+        if(cost<40){
+          cost+=10;
+        }
+
+        document.querySelector('.js-total-cost').innerHTML=`$${cost}`;
+      }
+
+
+      function subscribe(){
+        const buttonElement=document.querySelector('.js-subscribe-button');
+
+        if(buttonElement.innerText==='Subscribe'){  //use inner text because it doesn't consider spaces and extra lines while inner html doesn't.
+        buttonElement.innerHTML='Subscribed';
+        buttonElement.classList.add('is-subscribed'); // adds extra class to the button on subscribes
+        }
+        else{
+        buttonElement.innerHTML='Subscribe';
+        buttonElement.classList.remove('is-subscribed'); //removes the class is subscribed.
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>6 exercise</title>
+  </head>
+  <body>
+    <script>
+      /* 6A /6B /6C
+      const hour=22;
+      const name='Baba'
+      if(hour>=6 && hour<=12){
+        console.log(`Good Morning! ${name}`);
+      }
+      else if(hour>=13 && hour<=17){
+        console.log(`Good Afternoon! ${name}`);
+      }
+      else{
+        console.log(`Good Night! ${name}`);
+      } 
+      */
+     
+      /*coin toss */
+
+      const randomNumber=Math.random();
+      let guess='Tails'
+      /* 6G
+      if(randomNumber<0.5){
+        console.log('Heads');
+      } 
+      else{
+        console.log('Tails');
+      }*/
+      let result='';
+      if(randomNumber<0.5){
+        result='Heads';
+      }
+      else{
+        result='Tails';
+      }
+      console.log(`${result}`);
+      if(guess==result){
+        console.log('You Win!');
+      }
+      else{
+        console.log('You Lose!');
+      }
+      /*  6J
+      guess==result?console.log('You Win!'):console.log('You Lose!');
+      */
+    </script>
+  </body>
+</html>
